@@ -152,10 +152,9 @@
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false"> All</a>
-                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> Branding</a>
-                                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Logo</a>
-                                        <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">UI/UX </a>
-                                        <a class="nav-item nav-link" id="nav-technology" data-toggle="tab" href="#nav-techno" role="tab" aria-controls="nav-contact" aria-selected="false">Web Design</a>
+                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> Web Design</a>
+                                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Laravel Project</a>
+                                        
                                     </div>
                                 </nav>
                                 <!--End Nav Button  -->
@@ -308,100 +307,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- card FUR -->
-                            <div class="tab-pane fade" id="nav-last" role="tabpanel" aria-labelledby="nav-last-tab">
-                                <div class="services-caption">
-                                    <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services1.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <!-- Single -->
-                                                    <div class="single-services mb-30">
-                                                        <img src="{{asset('ui/fontend')}}/assets/img/service/services2.png" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <!-- Single -->
-                                                    <div class="single-services mb-30">
-                                                        <img src="{{asset('ui/fontend')}}/assets/img/service/services3.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services4.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services5.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services6.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- card FIVE -->
-                            <div class="tab-pane fade" id="nav-techno" role="tabpanel" aria-labelledby="nav-technology">
-                                <div class="services-caption">
-                                    <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services3.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <!-- Single -->
-                                                    <div class="single-services mb-30">
-                                                        <img src="{{asset('ui/fontend')}}/assets/img/service/services2.png" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <!-- Single -->
-                                                    <div class="single-services mb-30">
-                                                        <img src="{{asset('ui/fontend')}}/assets/img/service/services1.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services4.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services5.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services6.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
                     <!-- End Nav Card -->
                     </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutMecontroller;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -53,6 +54,18 @@ Route::post('/abouts/create',[AboutMecontroller::class, 'store'])->name('abouts.
 Route::get('/abouts/update/{about}',[AboutMecontroller::class, 'edit'])->name('abouts.edit');
 Route::patch('/abouts/update/{about}',[AboutMecontroller::class, 'update'])->name('abouts.update');
 Route::delete('/abouts/{about}',[AboutMecontroller::class, 'destroy'])->name('abouts.destroy');
+
+
+//service
+Route::get('/service',[ServiceController::class, 'index'])->name('service.index');
+Route::get('service/create',[ServiceController::class, 'create'])->name('service.create');
+Route::post('service/create',[ServiceController::class, 'store'])->name('service.store');
+Route::get('service/{service}',[ServiceController::class, 'edit'])->name('service.edit');
+Route::patch('service/{service}',[ServiceController::class, 'update'])->name('service.update');
+Route::delete('service/{service}',[ServiceController::class, 'destroy'])->name('service.destroy');
+// active deactive
+Route::post('service/active{service}',[ServiceController::class, 'active'])->name('service.active');
+Route::post('service/deactive{service}',[ServiceController::class, 'deactive'])->name('service.deactive');
 
 });
 
