@@ -22,7 +22,7 @@
         <div class="slider-area ">
             <div class="slider-active">
                 <!-- Single Slider -->
-                @foreach ($sliders as $slider)
+                @foreach ($sliders as $slider)                   
                 <div class="single-slider slider-height d-flex align-items-center">
                     <div class="container">
 
@@ -42,6 +42,7 @@
                         </div>
                     </div>
                 </div>    
+                
 
                 @endforeach
                 <!-- Single Slider -->
@@ -50,13 +51,15 @@
         @endif
         <!-- slider Area End-->
         <!-- About Area start -->
+        @if (!empty($abouts))
         <section class="about-area section-paddingt30">
             <div class="container">
+                @foreach ($abouts as $about)
                 <div class="row ">
                     <div class="col-lg-5">
                         <div class="about-caption mb-50">
-                            <h3>Designing With Passion While Exploring The World.</h3>
-                            <p class="pera1">Consectetur adipiscing elit, sed do eiusmod tempor ididunt ut labore et dolore magna aliqua. Quis ipsum suspendisces gravida. Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus.</p>
+                            <h3>{{$about->header}}</h3>
+                            <p class="pera1">{{$about->description}}</p>
                             <p>Consectetur adipiscing elit, sed do eiusmod tempor ididunt ut labore et dolore magna aliqua. </p>
                         </div>
                     </div>
@@ -65,14 +68,18 @@
                             <h3>Any Type Of Query<br> & Discussion.</h3>
                             <p>Late talk with me</p>
                            <div class="send-cv">
-                                <a href="#">hire@colorlib.com</a>
+                                <a href="#">{{$about->email}}</a>
                                 <i class="ti-arrow-right"></i>
                            </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
+                
             </div>
         </section>
+        @endif
+       
         <!-- About Area End -->
         <!-- Categories Area Start -->
         <section class="categories-area section-padding3">

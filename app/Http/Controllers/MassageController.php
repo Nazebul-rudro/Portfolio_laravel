@@ -12,7 +12,7 @@ class MassageController extends Controller
     public function index()
     {
         $messages = Message::latest()->paginate(5);
-        return view('backend.about.index', compact('messages'));
+        return view('backend.message.index', compact('messages'));
     }
     public function store(MassageRequest $request, Message $massage)
     {

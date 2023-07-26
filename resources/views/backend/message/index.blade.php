@@ -5,7 +5,7 @@
           <h1>Dashboard</h1>
           <nav>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">FeedBack</a></li>
+              <li class="breadcrumb-item"><a href="index.html">Message</a></li>
               <li class="breadcrumb-item active">Home</li>
             </ol>
           </nav>
@@ -21,7 +21,7 @@
             @endif
             <div class="card">
             <div class="card-header">
-            <a href="{{route('feedback.create')}}" class="btn btn-primary float-end">Create FeedBack</a>
+           
             </div>
             <div class="card-body">
              <!-- Table with stripped rows -->
@@ -30,33 +30,25 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Project</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Date</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($reviews as $review)
+                  @foreach ($messages as $message)
                   <tr>
-                    <th scope="row">{{$reviews->firstItem() + $loop->index}}</th>
-                    <td>{{$review->name}} </td>
-                    <td>{{$review->project_name}}</td>
-                    
-                    <td><img src="{{ asset('storage/reviews/' . $review->image) }}" alt="alt" width="50" height="30">  </td>
-                    
-                    <td class="d-flex">
-                      <a href="{{route('feedback.edit',['review'=>$review->id])}}" class="btn btn-warning mx-2">Edit</a>
-                      <form action="{{route('feedback.destroy',['review'=>$review->id])}}" method="post">
-                      @csrf
-                      @method('delete')
-                      <button type="submit" class="btn btn-danger">Delete</button>
-                      </form>
-                    </td>
+                    <th scope="row">{{$messages->firstItem() + $loop->index}}</th>
+                    <td>{{$message->name}} </td>
+                    <td>{{$message->email}}</td>
+                    <td><p style="font-size: 12px">{{$message->message}}</p></td>
+                    <td><p style="font-size: 12px">{{$message->created_at}}</p></td>
                   </tr>  
                   @endforeach
                 </tbody>
               </table>
-              {{ $reviews->links() }}
+              {{ $messages->links() }}
               <!-- End Table with stripped rows -->
             </div>
             </div>    

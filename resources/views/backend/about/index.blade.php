@@ -5,7 +5,7 @@
           <h1>Dashboard</h1>
           <nav>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Message</a></li>
+              <li class="breadcrumb-item"><a href="index.html">About</a></li>
               <li class="breadcrumb-item active">Home</li>
             </ol>
           </nav>
@@ -21,6 +21,7 @@
             @endif
             <div class="card">
             <div class="card-header">
+              <a href="{{Route('abouts.create')}}" class="btn btn-primary float-end">Create About</a>
             </div>
             <div class="card-body">
              <!-- Table with stripped rows -->
@@ -31,21 +32,30 @@
                     <th scope="col">name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Comment</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($messages as $about)
+                  @foreach ($abouts as $about)
                   <tr>
-                    <th scope="row">{{$messages->firstItem() + $loop->index}}</th>
-                    <td>{{$about->name}} </td>
+                    <th scope="row">{{$abouts->firstItem() + $loop->index}}</th>
+                    <td>{{$about->header}} </td>
                     <td>{{$about->email}}</td>
-                    <td><p style="font-size: 10px">{{$about->message}}</p></td>
+                    <td><p style="font-size: 10px">{{$about->description}}</p></td>
+                    <td class="d-flex">
+                      <a href="{{route('abouts.edit',['about'=>$about->id])}}" class="btn btn-warning mx-2">Edit</a>
+                      <form action="{{route('abouts.destroy',['about'=>$about->id])}}" method="post">
+                      @csrf
+                      @method('delete')
+                      <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
+                    </td>
                     
                   </tr>  
                   @endforeach
                 </tbody>
               </table>
-              {{ $messages->links() }}
+              {{ $abouts->links() }}
               <!-- End Table with stripped rows -->
             </div>
             </div>    

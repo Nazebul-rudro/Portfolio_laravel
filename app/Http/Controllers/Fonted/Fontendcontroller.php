@@ -16,13 +16,14 @@ class Fontendcontroller extends Controller
     //
     public function index()
     {
-        $sliders = Slider::limit(1)->get();
-        // $abouts = About::limit()->get();
+        
+        $sliders = Slider::where('isActive', '1')->limit(1)->get();
+        //  $abouts = About::where('isActive', '1')->limit(1)->get();
         // $services = Service::limit()->get();
         // $feedbacks = Review::limit()->get();
         // $massages = Message::limit()->get();
         // $footers = Footer::limit()->get();
 
-        return view('index', compact('sliders'));
+        return view('index', compact('sliders', ));
     }
 }
