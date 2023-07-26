@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\AboutMecontroller;
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\Fonted\Fontendcontroller;
+use App\Http\Controllers\FooterController;
+use App\Http\Controllers\MassageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SliderController;
@@ -67,7 +71,29 @@ Route::delete('service/{service}',[ServiceController::class, 'destroy'])->name('
 Route::post('service/active{service}',[ServiceController::class, 'active'])->name('service.active');
 Route::post('service/deactive{service}',[ServiceController::class, 'deactive'])->name('service.deactive');
 
+
+// feedback
+Route::get('/feedback',[FeedbackController::class, 'index'])->name('feedback.index');
+Route::get('/feedback/create',[FeedbackController::class, 'create'])->name('feedback.create');
+Route::post('/feedback/create',[FeedbackController::class, 'store'])->name('feedback.store');
+Route::get('/feedback/{review}',[FeedbackController::class, 'edit'])->name('feedback.edit');
+Route::patch('/feedback/{review}',[FeedbackController::class, 'update'])->name('feedback.update');
+Route::delete('/feedback/{review}',[FeedbackController::class, 'destroy'])->name('feedback.destroy');
+
+// footer
+Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
+Route::get('/footer/create', [FooterController::class, 'create'])->name('footer.create');
+Route::post('/footer/create', [FooterController::class, 'store'])->name('footer.store');
+Route::get('/footer/edit/{footer}', [FooterController::class, 'edit'])->name('footer.edit');
+Route::patch('/footer/edit/{footer}', [FooterController::class, 'update'])->name('footer.update');
+Route::delete('/footer/edit/{footer}', [FooterController::class, 'destroy'])->name('footer.destroy');
+Route::post('/footer/active/{footer}', [FooterController::class, 'active'])->name('footer.active');
+Route::post('/footer/deactive/{footer}', [FooterController::class, 'deactive'])->name('footer.deactive');
+
+// recive massage
+Route::get('/message',[MassageController::class, 'index'])->name('message.index');
 });
+Route::post('/message',[MassageController::class, 'store'])->name('message.store');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -85,9 +111,10 @@ Route::get('fontend', function(){
 } );
 
 // Auth::routes(['register' => false]);
-Route::get('/', function(){  
-    return view('index');
-} )->name('home');
+Route::get('/', [Fontendcontroller::class, 'index'])->name('home');
+// Route::get('/', function(){  
+//     return view('index');
+// } )->name('home');
 
 
 

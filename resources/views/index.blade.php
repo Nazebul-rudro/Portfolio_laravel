@@ -17,18 +17,21 @@
 
     <main>
 
+        @if (!empty($sliders))    
         <!-- slider Area Start-->
         <div class="slider-area ">
             <div class="slider-active">
                 <!-- Single Slider -->
+                @foreach ($sliders as $slider)
                 <div class="single-slider slider-height d-flex align-items-center">
                     <div class="container">
+
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-8">
                                 <div class="hero__caption">
-                                    <span data-animation="fadeInUp" data-delay=".4s">Get Every Single Solutions.</span>
-                                    <h1 data-animation="fadeInUp" data-delay=".6s">I’m Designer & Devloper Nazmul Haque</h1>
-                                    <P data-animation="fadeInUp" data-delay=".8s" >jhorem rfpsum golor sidt amet, consectetur adipiscing elit, eiusmod tempor incididunt utcjhg labore bet dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</P>
+                                    <span data-animation="fadeInUp" data-delay=".4s">{{$slider->caption}}</span>
+                                    <h1 data-animation="fadeInUp" data-delay=".6s">{{$slider->title}}</h1>
+                                    <P data-animation="fadeInUp" data-delay=".8s" >{{$slider->description}}</P>
                                     <!-- Hero-btn -->
                                     <div class="hero__btn">
                                         <a href="industries.html" class="btn hero-btn"  data-animation="fadeInLeft" data-delay=".8s">Learn More</a>
@@ -38,28 +41,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>    
+
+                @endforeach
                 <!-- Single Slider -->
-                <div class="single-slider slider-height d-flex align-items-center">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-8">
-                                <div class="hero__caption">
-                                    <span data-animation="fadeInUp" data-delay=".4s">Get Every Single Solutions.</span>
-                                    <h1 data-animation="fadeInUp" data-delay=".6s">I’m Designer Haris F. Watson</h1>
-                                    <P data-animation="fadeInUp" data-delay=".8s" >jhorem rfpsum golor sidt amet, consectetur adipiscing elit, eiusmod tempor incididunt utcjhg labore bet dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</P>
-                                    <!-- Hero-btn -->
-                                    <div class="hero__btn">
-                                        <a href="industries.html" class="btn hero-btn"  data-animation="fadeInLeft" data-delay=".8s">Learn More</a>
-                                        <a href="industries.html" class="btn border-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">Hire Me</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+        @endif
         <!-- slider Area End-->
         <!-- About Area start -->
         <section class="about-area section-paddingt30">
@@ -355,7 +343,7 @@
                                     <div class="blog-inner">
                                     <div class="blog-top">
                                             <div class="person-img">
-                                                <img src="assets/img/gallery/blog1.png" alt="">
+                                                <img src="{{asset('ui/fontend/assets/img/gallery/blog1.png')}}" alt="">
                                             </div>
                                             <div class="comment-person">
                                                 <h2>Bradley Erickson</h2>   
@@ -372,7 +360,7 @@
                                     <div class="blog-inner">
                                     <div class="blog-top">
                                             <div class="person-img">
-                                                <img src="assets/img/gallery/blog2.png" alt="">
+                                                <img src="{{asset('ui/fontend/assets/img/gallery/blog2.png')}}" alt="">
                                             </div>
                                             <div class="comment-person">
                                                 <h2>Bradley Erickson</h2>   
@@ -389,7 +377,7 @@
                                     <div class="blog-inner">
                                     <div class="blog-top">
                                             <div class="person-img">
-                                                <img src="assets/img/gallery/blog3.png" alt="">
+                                                <img src="{{asset('ui/fontend/assets/img/gallery/blog3.png')}}" alt="">
                                             </div>
                                             <div class="comment-person">
                                                 <h2>Bradley Erickson</h2>   
@@ -428,19 +416,19 @@
             <div class="container">
                 <div class="brand-active brand-border pt-50 pb-40">
                     <div class="single-brand">
-                        <img src="assets/img/gallery/brand1.png" alt="">
+                        <img src="{{asset('ui/fontend')}}/assets/img/gallery/brand1.png" alt="">
                     </div>
                     <div class="single-brand">
-                        <img src="assets/img/gallery/brand2.png" alt="">
+                        <img src="{{asset('ui/fontend')}}/assets/img/gallery/brand2.png" alt="">
                     </div>
                     <div class="single-brand">
-                        <img src="assets/img/gallery/brand3.png" alt="">
+                        <img src="{{asset('ui/fontend')}}/assets/img/gallery/brand3.png" alt="">
                     </div>
                     <div class="single-brand">
-                        <img src="assets/img/gallery/brand4.png" alt="">
+                        <img src="{{asset('ui/fontend')}}/assets/img/gallery/brand4.png" alt="">
                     </div>
                     <div class="single-brand">
-                        <img src="assets/img/gallery/brand2.png" alt="">
+                        <img src="{{asset('ui/fontend')}}/assets/img/gallery/brand2.png" alt="">
                     </div>
                 </div>
             </div>
@@ -458,10 +446,11 @@
                       </div>
                     </div>
                     <div class="col-xl-5 col-lg-5">
-                        <form action="#" class="contact-wrapper">
-                            <input type="text" name="name" placeholder="Full Name">
-                            <input type="email" name="email" placeholder="Email Address">
-                            <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                        <form action="{{route('message.store')}}" method="POST" class="contact-wrapper">
+                            @csrf
+                            <input type="text" name="name" placeholder="Full Name" value="{{old('name')}}">
+                            <input type="email" name="email" placeholder="Email Address" value="{{old('email')}}">
+                            <textarea name="message" id="message" placeholder="Your Message">{{old('message')}}</textarea>
                             <button class="submit-btn2" type="submit">Send Message</button>
                         </form>
                     </div>

@@ -23,7 +23,7 @@ class ServiceController extends Controller
         $exe = $request->file('project_image')->getClientOriginalExtension();
         $filename = time().uniqid().'.'. $exe;
         if($request->hasFile('project_image')){
-            $request->file('project_image')->storeAs('/public/service'. $filename);
+            $request->file('project_image')->storeAs('/public/service/'. $filename);
         }
         $service->create([
         'project_name'=> $request->project_name,

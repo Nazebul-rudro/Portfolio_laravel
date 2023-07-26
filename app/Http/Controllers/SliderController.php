@@ -81,7 +81,7 @@ class SliderController extends Controller
         $exe = $request->file('image')->getClientOriginalExtension();
         $filename = time(). uniqid(). '.' . $exe;
         if($request->hasFile('image')){
-            $request->file('image')->storeAs('/public/slider'. $filename);
+            $request->file('image')->storeAs('/public/slider/'. $filename);
         }
         $slider->update([
                 'caption' => $request->caption,
