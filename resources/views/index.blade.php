@@ -1,5 +1,5 @@
-<x-fontend.layouts.master>
-    <!-- Preloader Start -->
+<x-fontend.layouts.master>    
+       
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
@@ -68,8 +68,8 @@
                             <h3>Any Type Of Query<br> & Discussion.</h3>
                             <p>Late talk with me</p>
                            <div class="send-cv">
-                                <a href="#">{{$about->email}}</a>
-                                <i class="ti-arrow-right"></i>
+                                <a href="#">{{$about->email}} </a>
+                                {{-- <i class="ti-arrow-right"></i> --}}
                            </div>
                         </div>
                     </div>
@@ -84,6 +84,7 @@
         <!-- Categories Area Start -->
         <section class="categories-area section-padding3">
             <div class="container">
+                
                 <div class="row">
                     <div class="col-lg-6">
                         <!-- Section Tittle -->
@@ -131,6 +132,7 @@
         </section>
         <!-- Categories Area End -->
         <!-- Services Area Start -->
+        
         <section class="services-area  services-padding">
             <div class="container">
                <div class="project-heading mb-35">
@@ -165,140 +167,91 @@
                             <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">           
                                 <div class="services-caption">
                                     <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services1.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <!-- Single -->
-                                                    <div class="single-services mb-30">
-                                                        <img src="{{asset('ui/fontend')}}/assets/img/service/services2.png" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <!-- Single -->
-                                                    <div class="single-services mb-30">
-                                                        <img src="{{asset('ui/fontend')}}/assets/img/service/services3.png" alt="">
-                                                    </div>
+                                        @foreach ($alls = App\Models\Service::where('isActive', '1')->orderByRaw('RAND()')->limit(1)->get() as $all)
+                                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                                <!-- Single -->
+                                                <div class="single-services mb-30">
+                                                    <a href="{{$all->git_link}}">
+                                                        <img src="{{ asset('storage/service/' . $all->project_image) }}" alt="{{ $all->project_image }}">
+                                                    </a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endforeach
+                                            
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="row">
+                                                    @foreach ( $allservices = App\Models\Service::where('isActive', '1')->orderByRaw('RAND()')->limit(2)->get() as $allservice)
+                                                    <div class="col-lg-12">
+                                                        <!-- Single -->
+                                                        <div class="single-services mb-30">
+                                                            <a href="{{$allservice->git_link}}">
+                                                                <img src="{{ asset('storage/service/' . $allservice->project_image) }}" alt="{{ $allservice->project_image }}">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                            
+                                            @foreach ( $serviceimgs = App\Models\Service::where('isActive', '1')->orderByRaw('RAND()')->limit(3)->get() as $serviceimg)
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <!-- Single -->
                                             <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services4.png" alt="">
+                                                <a href="{{$serviceimg->git_link}}">
+                                                    <img src="{{ asset('storage/service/' . $serviceimg->project_image) }}" alt="{{ $serviceimg->project_image }}">
+                                                </a>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services5.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services6.png" alt="">
-                                            </div>
-                                        </div>
+                                        @endforeach
+                                       
                                     </div>
                                 </div>
                             </div>
                             <!-- Card TWO -->
+                           
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                 <div class="services-caption">
+                                   
                                     <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services6.png" alt="">
-                                            </div>
-                                        </div>
+                                        @foreach ($webservices = App\Models\Service::where('isActive', '1')->limit(6)->get() as $webservice)
+                                        
+                                        @if ($webservice->project_name == "web_desgin" )
+                                        {{-- {{$webservice->project_name}} --}}
+                                        
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <!-- Single -->
-                                                    <div class="single-services mb-30">
-                                                        <img src="{{asset('ui/fontend')}}/assets/img/service/services2.png" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <!-- Single -->
-                                                    <div class="single-services mb-30">
-                                                        <img src="{{asset('ui/fontend')}}/assets/img/service/services3.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
+                                            {{-- {{$webservice->id}} --}}
                                             <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services4.png" alt="">
+                                                <a href="{{$webservice->git_link}}">
+                                                <img src="{{ asset('storage/service/' . $webservice->project_image) }}" alt="{{$webservice->project_name}}">
+                                                </a>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services5.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services1.png" alt="">
-                                            </div>
-                                        </div>
                                     </div>
+                                        @endif   
+                                        @endforeach     
+                                    </div> 
                                 </div>
                             </div>
+                           
+                            
                             <!-- Card THREE -->
                             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                                 <div class="services-caption">
                                     <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services2.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <!-- Single -->
-                                                    <div class="single-services mb-30">
-                                                        <img src="{{asset('ui/fontend')}}/assets/img/service/services1.png" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <!-- Single -->
-                                                    <div class="single-services mb-30">
-                                                        <img src="{{asset('ui/fontend')}}/assets/img/service/services3.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @foreach ($laravelservices as $laravelservice)
+                                        {{-- {{$laravelservice->id}} --}}
+                                        @if ($laravelservice->project_name == "laravel_project")
+                                        {{-- {{$laravelservice->id}} --}}
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <!-- Single -->
                                             <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services4.png" alt="">
+                                               <a href="{{$laravelservice->git_link}}">
+                                                <img src="{{asset('storage/service/' . $laravelservice->project_image)}}" alt="{{$laravelservice->project_name}}">
+                                               </a>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services5.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <!-- Single -->
-                                            <div class="single-services mb-30">
-                                                <img src="{{asset('ui/fontend')}}/assets/img/service/services6.png" alt="">
-                                            </div>
-                                        </div>
+                                        @endif
+                                        @endforeach
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -309,6 +262,8 @@
                 </div>
             </div>
         </section>
+       
+        
         <!-- Services Area End -->
         <!-- Want To Work Start -->
         <section class="wantToWork-area w-padding2">
@@ -345,73 +300,24 @@
                     <div class="custom-row">
                         <div class="blog-active">
                             <!-- single-items -->
+                            @foreach ($feedbacks as $feedback)
                             <div class="col-xl-4">
                                 <div class="blog-wrapper">
                                     <div class="blog-inner">
                                     <div class="blog-top">
                                             <div class="person-img">
-                                                <img src="{{asset('ui/fontend/assets/img/gallery/blog1.png')}}" alt="">
+                                                <img src="{{asset('/storage/reviews/'.$feedback->image)}}" alt="" height="50" width="50" class="rounded-circle">
                                             </div>
                                             <div class="comment-person">
-                                                <h2>Bradley Erickson</h2>   
-                                                <span>UI/UX Designer</span>
+                                                <h2>{{$feedback->name}}</h2>   
+                                                <span>{{$feedback->project_name}}</span>
                                             </div>
                                     </div>
-                                        <p>Consectetur adipisicing elit, seddosdoe eiusmod tempor incididunt utore etstes dolore magna aliqua. Ut imminim restai veniam, quis nostrud.</p>
+                                        <p>{{$feedback->comment}}</p>
                                     </div>
                                 </div>
                             </div>
-                            <!-- single-items -->
-                            <div class="col-xl-4">
-                                <div class="blog-wrapper">
-                                    <div class="blog-inner">
-                                    <div class="blog-top">
-                                            <div class="person-img">
-                                                <img src="{{asset('ui/fontend/assets/img/gallery/blog2.png')}}" alt="">
-                                            </div>
-                                            <div class="comment-person">
-                                                <h2>Bradley Erickson</h2>   
-                                                <span>UI/UX Designer</span>
-                                            </div>
-                                    </div>
-                                        <p>Consectetur adipisicing elit, seddosdoe eiusmod tempor incididunt utore etstes dolore magna aliqua. Ut imminim restai veniam, quis nostrud.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- single-items -->
-                            <div class="col-xl-4">
-                                <div class="blog-wrapper">
-                                    <div class="blog-inner">
-                                    <div class="blog-top">
-                                            <div class="person-img">
-                                                <img src="{{asset('ui/fontend/assets/img/gallery/blog3.png')}}" alt="">
-                                            </div>
-                                            <div class="comment-person">
-                                                <h2>Bradley Erickson</h2>   
-                                                <span>UI/UX Designer</span>
-                                            </div>
-                                    </div>
-                                        <p>Consectetur adipisicing elit, seddosdoe eiusmod tempor incididunt utore etstes dolore magna aliqua. Ut imminim restai veniam, quis nostrud.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- single-items -->
-                            <div class="col-xl-4">
-                                <div class="blog-wrapper">
-                                    <div class="blog-inner">
-                                    <div class="blog-top">
-                                            <div class="person-img">
-                                                <img src="assets/img/gallery/blog2.png" alt="">
-                                            </div>
-                                            <div class="comment-person">
-                                                <h2>Bradley Erickson</h2>   
-                                                <span>UI/UX Designer</span>
-                                            </div>
-                                    </div>
-                                        <p>Consectetur adipisicing elit, seddosdoe eiusmod tempor incididunt utore etstes dolore magna aliqua. Ut imminim restai veniam, quis nostrud.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -449,7 +355,7 @@
                       <div class="contact-caption mb-50">
                             <h3>If Not Now, When? Let’s Work Together!</h3>
                             <p>Consectetur adipiscing elit, sed do eiusmod tempor ididunt ut labore et dolore magna aliqua. Quis ipsum suspendisces gravida. Risus commodo viverra.</p>
-                            <img src="assets/img/gallery/sin.png" alt="">
+                            <img src="{{asset('ui/fontend/assets/img/gallery/sin.png')}}" alt="">
                       </div>
                     </div>
                     <div class="col-xl-5 col-lg-5">

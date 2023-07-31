@@ -23,9 +23,9 @@ class MassageRequest extends FormRequest
     {
         return [
             //
-            'name' => 'required |string|regex:/^[a-zA-Z]+$/u',
-            'email' => 'required|email',
-            'message' => 'required|regex:/^[a-zA-Z]+$/u'
+            // 'name' => 'required |string|regex:/^[a-z A-Z]+$/u',
+            
+            // 'message' => 'required|regex:/^[a-zA-Z]+$/u'
         ];
     }
 }

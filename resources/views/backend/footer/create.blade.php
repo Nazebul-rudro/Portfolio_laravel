@@ -84,9 +84,18 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">Slider Active</label>
+                  <label for="inputNumber" class="col-sm-2 col-form-label">footer Active</label>
                   <div class="col-sm-10">
                     <input type="checkbox" id="formFile" name="isActive">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="instagram" class="col-sm-2 col-form-label">Phone Number</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" name="contact">
+                    @error('contact')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                   </div>
                 </div>
                 <div class="row mb-3">

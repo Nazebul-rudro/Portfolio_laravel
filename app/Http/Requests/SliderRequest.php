@@ -24,7 +24,7 @@ class SliderRequest extends FormRequest
         return [
             'caption' => ['required', 'min:10', 'max:255'],
             'title' => ['required', 'min:20', 'max:50'],
-            'description' => ['required', 'min:10', 'max:30']
+            'description' => ['required', 'min:10',]
         ];
     }
 }

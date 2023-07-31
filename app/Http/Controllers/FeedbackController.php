@@ -56,7 +56,7 @@ class FeedbackController extends Controller
 public function uploadImage($file){
     //$fileName = $file->file('CategoryImage')->getClientOriginalExtension();
 $fileName = time(). uniqid().'.' . $file->getClientOriginalExtension();
-Image::make($file)->resize(1160, 365)->save(storage_path('/app/public/reviews/'. $fileName));
+Image::make($file)->resize(500, 500)->save(storage_path('/app/public/reviews/'. $fileName));
 return $fileName;
 }
 }

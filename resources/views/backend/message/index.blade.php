@@ -46,9 +46,22 @@
                     <td><p style="font-size: 12px">{{$message->created_at}}</p></td>
                   </tr>  
                   @endforeach
+
+                  @foreach ($contactmessages as $contactmessage)
+                  <tr>
+                    <th scope="row">{{$contactmessages->firstItem() + $loop->index}}</th>
+                    <td>{{$contactmessage->name. '  '}}<span style="color: red">->another</span> </td>
+                    <td>{{$contactmessage->email}}</td>
+                    <td><p style="font-size: 12px">{{$contactmessage->message}}</p></td>
+                    <td><p style="font-size: 12px">{{$contactmessage->created_at}}</p></td>
+                  </tr>
+                  @endforeach
+
+
                 </tbody>
               </table>
               {{ $messages->links() }}
+              {{ $contactmessages->links() }}
               <!-- End Table with stripped rows -->
             </div>
             </div>    

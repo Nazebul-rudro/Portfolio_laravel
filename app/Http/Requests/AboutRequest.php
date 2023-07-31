@@ -23,8 +23,8 @@ class AboutRequest extends FormRequest
     {
         return [
             //
-            'header' => ['required', 'min:25', 'max:50'],
-            'description' => ['required', 'min:30', 'max:80'],
+            'header' => ['required', 'min:25', ],
+            'description' => ['required', 'min:30'],
             'email' => ['email']
 
         ];

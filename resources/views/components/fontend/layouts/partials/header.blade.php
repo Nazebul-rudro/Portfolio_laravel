@@ -16,24 +16,24 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav> 
                                         <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="services.html">Services</a></li>
-                                            <li><a href="portfolio.html">Portfolio</a></li>
-                                            <li><a href="#">Page</a>
+                                            <li><a href="{{route('home')}}">Home</a></li>
+                                            <li><a href="{{route('fontend.about')}}">About</a></li>
+                                            <li><a href="{{route('fontend.service')}}">Services</a></li>
+                                            <li><a href="{{route('fontend.protfolio')}}">Portfolio</a></li>
+                                            {{-- <li><a href="#">Page</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li><a href="blog_details.html">Blog Details</a></li>
                                                     <li><a href="elements.html">Element</a></li>
                                                     <li><a href="portfolio_details.html">Portfolio Details</a></li>
                                                 </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            </li> --}}
+                                            <li><a href="{{route('fontend.contact')}}">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-xl-block ml-20">
-                                    <a href="#" class="btn header-btn">Get Free Consultent</a>
+                                    <a href="{{route('fontend.protfolio_details')}}" class="btn header-btn">Get Free Consultent</a>
                                 </div>
                             </div>
                         </div>   

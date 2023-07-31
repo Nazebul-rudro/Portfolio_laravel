@@ -1,11 +1,11 @@
-<x-backend.layouts.master>
+s<x-backend.layouts.master>
     <main id="main" class="main">
 
         <div class="pagetitle">
           <h1>Dashboard</h1>
           <nav>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Service</a></li>
+              <li class="breadcrumb-item"><a href="index.html">Consultent</a></li>
               <li class="breadcrumb-item active">Home</li>
             </ol>
           </nav>
@@ -21,7 +21,7 @@
             @endif
             <div class="card">
             <div class="card-header">
-            <a href="{{Route('service.create')}}" class="btn btn-primary float-end">Create Service</a>
+            <a href="{{Route('consultent.create')}}" class="btn btn-primary float-end">Create Consultent</a>
             </div>
             <div class="card-body">
              <!-- Table with stripped rows -->
@@ -29,36 +29,21 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Project Name</th>
+                    
                     <th scope="col">image</th>
-                    <th scope="col">Active</th>
+                    
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($services as $service)
+                  @foreach ($consultents as $consult)
                   <tr>
-                    <th scope="row">{{$services->firstItem() + $loop->index}}</th>
-                    <td>{{$service->project_name}} </td>
-                    <td><img src="{{ asset('storage/service/' . $service->project_image) }}" alt="" srcset="" height="30" width="50"> </td>
-                    <td>
-                      @if ($service->isActive == 1)
-                      <form action="{{route('service.active',['service'=>$service->id])}}" method="post">
-                        @csrf
-                        <button type="submit" class="btn btn-success">Active</button>
-                        </form>
-                      
-                      @else
-                      <form action="{{route('service.deactive',['service'=>$service->id])}}" method="post">
-                        @csrf
-                        <button type="submit" class="btn btn-info">Deactive</button>
-                        </form>
-                      
-                      @endif
-                    </td>
+                    <th scope="row">{{$consultents->firstItem() + $loop->index}}</th>
+                    <td><img src="{{ asset('storage/consultent/'.$consult->image) }}" alt="" srcset="" height="30" width="50"> </td>
                     <td class="d-flex">
-                      <a href="{{route('service.edit',['service'=>$service->id])}}" class="btn btn-warning mx-2">Edit</a>
-                      <form action="{{route('service.destroy',['service'=>$service->id])}}" method="post">
+                      <a href="{{route('consultent.edit',['consult'=>$consult->id])}}" class="btn btn-warning mx-2"> Edit </a>
+                      
+                      <form action="{{route('consultent.destroy',['consult'=>$consult->id])}}" method="post">
                       @csrf
                       @method('delete')
                       <button type="submit" class="btn btn-danger">Delete</button>
@@ -68,7 +53,7 @@
                   @endforeach
                 </tbody>
               </table>
-              {{ $services->links() }} 
+              {{ $consultents->links() }} 
               
             </div>
             </div>    

@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\AboutMecontroller;
+use App\Http\Controllers\ConsultentController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\Fonted\Fontendcontroller;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\MassageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProtfolioProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
@@ -90,10 +92,31 @@ Route::delete('/footer/edit/{footer}', [FooterController::class, 'destroy'])->na
 Route::post('/footer/active/{footer}', [FooterController::class, 'active'])->name('footer.active');
 Route::post('/footer/deactive/{footer}', [FooterController::class, 'deactive'])->name('footer.deactive');
 
+
+// profile
+Route::get('profile', [ProtfolioProfileController::class, 'index'])->name('profile.index');
+Route::get('profile/create', [ProtfolioProfileController::class, 'create'])->name('profile.create');
+Route::post('profile/create', [ProtfolioProfileController::class, 'store'])->name('profile.store');
+Route::get('profile/edit/{number}', [ProtfolioProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('profile/{id}', [ProtfolioProfileController::class, 'update'])->name('profile.update');
+// Route::patch('/profile/{id}', 'ProfileController@update')->name('profile.update');
+
+Route::get('consultent', [ConsultentController::class, 'index'])->name('consultent.index');
+Route::get('consultent/create', [ConsultentController::class, 'create'])->name('consultent.create');
+Route::post('consultent/create', [ConsultentController::class, 'store'])->name('consultent.store');
+Route::get('consultent/edit/{consult}', [ConsultentController::class, 'edit'])->name('consultent.edit');
+Route::patch('consultent/edit/{consult}', [ConsultentController::class, 'update'])->name('consultent.update');
+Route::delete('consultent/{consult}', [ConsultentController::class, 'destroy'])->name('consultent.destroy');
+
+Route::delete('profile/{number}', [ProtfolioProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+
 // recive massage
 Route::get('/message',[MassageController::class, 'index'])->name('message.index');
 });
 Route::post('/message',[MassageController::class, 'store'])->name('message.store');
+Route::post('/contactmessage',[MassageController::class, 'contact'])->name('contactmessage.store');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -112,9 +135,12 @@ Route::get('fontend', function(){
 
 // Auth::routes(['register' => false]);
 Route::get('/', [Fontendcontroller::class, 'index'])->name('home');
-// Route::get('/', function(){  
-//     return view('index');
-// } )->name('home');
+
+Route::get('/about',[Fontendcontroller::class, 'about'])->name('fontend.about');
+Route::get('/services',[Fontendcontroller::class, 'service'])->name('fontend.service');
+Route::get('/protfolio',[Fontendcontroller::class, 'protfolio'])->name('fontend.protfolio');
+Route::get('/contact',[Fontendcontroller::class, 'contact'])->name('fontend.contact');
+Route::get('/protfolio-details',[Fontendcontroller::class, 'protfolio_details'])->name('fontend.protfolio_details');
 
 
 

@@ -27,7 +27,8 @@ class FooterController extends Controller
         'twitter' =>$request->twitter,
         'facebook' =>$request->facebook, 
         'instagram' =>$request->instagram,
-        'isActive' =>$request->isActive == true ? '1' : '0'
+        'isActive' =>$request->isActive == true ? '1' : '0',
+        'contact' =>$request->contact
         ]);
         return redirect()->route('footer.index')->with('massage', 'Footer Added');
     }
@@ -45,7 +46,8 @@ class FooterController extends Controller
             'twitter' =>$request->twitter,
             'facebook' =>$request->facebook, 
             'instagram' =>$request->instagram,
-            'isActive' =>$request->isActive == true ? '1' : '0'
+            'isActive' =>$request->isActive == true ? '1' : '0',
+            'contact' =>$request->contact
         ]);
         return redirect()->route('footer.index')->with('massage', 'Footer Update');
     }
